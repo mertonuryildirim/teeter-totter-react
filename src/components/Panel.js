@@ -54,12 +54,6 @@ const Panel = () => {
           Total weight:
           <span className="panel-stats-weight">{getRightWeight(rightElements)} kg</span>
         </div>
-        <div>
-          Momentum:
-          <span className="panel-stats-weight">
-            {fallingElements[0] && fallingElements[0].weight}
-          </span>
-        </div>
       </div>
     </div>
   );

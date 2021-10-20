@@ -56,7 +56,7 @@ export const restartSimulation = () => {
 
 export const getTotalWeight = (elements) => {
   return elements.reduce((total, element) => {
-    return (total += element.weight * element.offset);
+    return (total += element.weight);
   }, 0);
 };
 
