@@ -23,6 +23,7 @@ const FallArea = () => {
     if (e.keyCode === 37) dispatch(moveLeft());
     if (e.keyCode === 39) dispatch(moveRight());
   };
+
   const onFallEnd = () => {
     setIterationCounter(iterationCounter + 1);
     if (iterationCounter === MOVEMENT_DELAY_DECREASE_AFTER) {
@@ -30,6 +31,7 @@ const FallArea = () => {
       setIterationCounter(0);
     }
   };
+  
   useEffect(() => {
     dispatch(initializeFallingElements());
     window.addEventListener("keydown", handleKeyDown);
