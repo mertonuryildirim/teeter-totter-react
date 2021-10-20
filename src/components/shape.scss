@@ -1,77 +1,80 @@
 $colors: (
-	'white': #ffffff,
-	'black': #000000,
-	'orange': #ff9900,
-	'green': #6aa84f,
-	'gray': #666666,
-	'blue': #cfe2f3,
-	'red': #cc4125,
-	'yellow': #ffff00
+  "white": #ffffff,
+  "black": #000000,
+  "orange": #ff9900,
+  "green": #6aa84f,
+  "gray": #666666,
+  "blue": #cfe2f3,
+  "red": #cc4125,
+  "yellow": #ffff00,
 );
 
 @function get-color($color, $opacity: 1, $_colors: $colors) {
-	@return rgba(map-get($_colors, $color), $opacity);
+  @return rgba(map-get($_colors, $color), $opacity);
 }
 
 @function em($input, $base: $body-font-size) {
-	@return ($input / $base) * 1em;
+  @return ($input / $base) * 1em;
 }
 
 @function rem($input, $base: 16) {
-	@return ($input / $base) * 1rem;
+  @return ($input / $base) * 1rem;
 }
 
 .shape {
-	z-index: 1;
-	position: absolute;
-	top: 0;
-	width: 0.6em;
-	height: 0.6em;
-	border: 0.05em solid get-color('black', 0.1);
-	transform: translateY(-100%);
-	color: get-color('black', 0.8);
-	text-align: center;
-	line-height: 0.5em;
-	font-weight: 700;
-	&-wrapper {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		width: rem(750);
-		max-width: 100%;
-		height: rem(7);
-		margin: 0 auto;
-		&::before {
-			display: none;
-		}
-	}
-	&__inner {
-		display: block;
-		font-size: 0.3em;
-	}
-	&--right {
-		transform: translate(-50%, -100%);
-		animation: swipeIn 500ms;
-	}
-	&--circle {
-		border-radius: 50%;
-		background-color: get-color('blue', 0.7);
-	}
-	&--triangle {
-		border-width: 0 0.5em 0.5em 0.5em;
-		border-color: transparent;
-		border-bottom-color: get-color('black', 0.1);
-		.shape__inner {
-			position: absolute;
-			left: 50%;
-			top: 0;
-			transform: translate(-50%);
-			line-height: 2.75em;
-		}
-	}
-	&--rectangle {
-		background-color: get-color('orange', 0.7);
-	}
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  width: 0.6em;
+  height: 0.6em;
+  border: 0.05em solid get-color("black", 0.1);
+  transform: translateY(-100%);
+  color: get-color("black", 0.8);
+  text-align: center;
+  line-height: 0.5em;
+  font-weight: 700;
+  &-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: rem(750);
+    max-width: 100%;
+    height: rem(7);
+    margin: 0 auto;
+    &::before {
+      display: none;
+    }
+  }
+  &__inner {
+    display: block;
+    font-size: 0.3em;
+  }
+  &--right {
+    transform: translate(-50%, -100%);
+    animation: swipeIn 500ms;
+  }
+  &--circle {
+    border-radius: 50%;
+    background-color: get-color("blue", 0.7);
+  }
+  &--triangle {
+    width: 0;
+    height: 0;
+	border-top: 0.5em solid transparent;
+    border-left: 0.5em solid transparent;
+    border-right: 0.5em solid transparent;
+    border-bottom: 0.5em solid get-color("black", 0.1);
+    .shape__inner {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translate(-50%);
+      line-height: 2.75em;
+    }
+  }
+  &--rectangle {
+    background-color: get-color("orange", 0.7);
+  }
 }
