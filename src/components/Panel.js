@@ -1,5 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-import { toggleSimulation, restartSimulation, getLeftWeight, getRightWeight } from "../store/actions";
+import {
+  toggleSimulation,
+  restartSimulation,
+  getLeftWeight,
+  getRightWeight,
+} from "../store/actions";
 import "./panel.scss";
 
 const Panel = () => {
@@ -19,11 +24,14 @@ const Panel = () => {
     <div className="panel">
       <div className="panel-stats">
         <div>
-          Total weight:
-          <span className="panel-stats-weight">{getLeftWeight(leftElements)} kg</span>
+          <span className="panel-stats-head">Total Weight : </span>
+          <span className="panel-stats-weight">
+            {getLeftWeight(leftElements)} kg
+          </span>
         </div>
         <div>
-          Momentum:
+          <span className="panel-stats-head">Momentum : </span>
+
           <span className="panel-stats-weight">
             {fallingElements[0] && fallingElements[0].weight}
           </span>
@@ -32,7 +40,7 @@ const Panel = () => {
 
       <div>
         <button
-          className="play-btn"
+          className="btn play-btn"
           tabIndex="-1"
           onClick={handleToggleSimulation}
           disabled={ended}
@@ -41,7 +49,7 @@ const Panel = () => {
         </button>
 
         <button
-          className="refresh-btn"
+          className="btn refresh-btn"
           tabIndex="-1"
           onClick={handleRestartGame}
         >
@@ -51,8 +59,11 @@ const Panel = () => {
 
       <div className="panel-stats">
         <div>
-          Total weight:
-          <span className="panel-stats-weight">{getRightWeight(rightElements)} kg</span>
+          <span className="panel-stats-head">Total Weight : </span>
+
+          <span className="panel-stats-weight">
+            {getRightWeight(rightElements)} kg
+          </span>
         </div>
       </div>
     </div>
