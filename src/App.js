@@ -1,6 +1,6 @@
 import TeeterTotter from "./components/body/TeeterTotter";
 import Panel from "./components/header/Panel";
-import "./app.css"
+import "./app.scss"
 
 const App = () => {
   return (

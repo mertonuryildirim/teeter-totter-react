@@ -1,4 +1,4 @@
-import "./panel.css";
+import "./panel.scss";
 
 const Panel = () => {
   return (
@@ -17,7 +17,7 @@ const Panel = () => {
       <div>
         <button className="play-btn">Pause / Replay</button>
 
-        <button className="refresh-btn"> Refresh </button>
+        <button className="refresh-btn">Refresh</button>
       </div>
 
       <div className="panel-stats">

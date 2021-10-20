@@ -1,4 +1,4 @@
-import "./teeterTotterObject.css";
+import "./teeterTotterObject.scss";
 
 const TeeterTotterObject = () => {
   return (

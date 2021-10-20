@@ -1,9 +1,9 @@
-import "./shape.css"
+import "./shape.scss"
 
 const Shape = () => {
   return (
     <div className="shape">
-      <div className="shape-weight"> ? kg </div>
+      <div className="shape__weight"> ? kg </div>
     </div>
   );
 };

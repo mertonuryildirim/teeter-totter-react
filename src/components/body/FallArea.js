@@ -1,4 +1,4 @@
-import "./fallArea.css"
+import "./fallArea.scss"
 import Shape from "./Shape"
 
 const FallArea = () => {
