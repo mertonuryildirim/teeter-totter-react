@@ -1,0 +1,9 @@
+.teeter-totter {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 100%;
+  min-width: 600px;
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 10rem;
+}
