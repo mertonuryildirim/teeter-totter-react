@@ -1,6 +1,6 @@
 import FallArea from "./FallArea"
-import "./teeterTotter.css"
 import TeeterTotterObject from "./TeeterTotterObject"
+import "./teeterTotter.css"
 
 const TeeterTotter = () => {
     return (

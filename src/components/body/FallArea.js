@@ -1,5 +1,5 @@
-import React from 'react'
-import Shape from './Shape'
+import "./fallArea.css"
+import Shape from "./Shape"
 
 const FallArea = () => {
     return (

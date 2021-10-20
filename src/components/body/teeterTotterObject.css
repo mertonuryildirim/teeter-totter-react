@@ -4,14 +4,14 @@
   align-items: center;
 }
 
-.teeter-totter-board {
+.teeter-totter-object-board {
   position: relative;
   width: 100%;
   background-color: #d74545;
   transition: 300ms ease-in-out;
 }
 
-.teeter-totter-foundation {
+.teeter-totter-object-foundation {
   width: 0;
   height: 0;
   border-left: 3rem solid transparent;

@@ -1,9 +1,9 @@
-import React from "react";
+import "./shape.css"
 
 const Shape = () => {
   return (
     <div className="shape">
-      <div class="shape-weight"> ? kg </div>
+      <div className="shape-weight"> ? kg </div>
     </div>
   );
 };
