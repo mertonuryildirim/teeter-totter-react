@@ -95,7 +95,7 @@ export const fallEnded = () => {
 	return (dispatch, getState) => {
 		dispatch(insertLeftElement());
 		setTimeout(() => {
-			const { Seesaw: state } = getState();
+			const { reducer: state } = getState();
 			if (getStatus(state)) {
 				setTimeout(() => {
 					dispatch(toggleSimulation());
