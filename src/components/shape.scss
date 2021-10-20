@@ -1,38 +1,54 @@
 .shape {
-  position         : absolute;
-  display          : flex;
-  align-items      : center;
-  justify-content  : center;
-  transform-origin : top left;
-
-  .shape__weight {
-      font-size   : 10px;
-      font-weight : 500;
-      color       : #fff;
-  }
-}
-
-.shape--square,
-.shape--circle {
-  width  : 2.25rem;
-  height : 2.25rem;
-}
-
-.shape--circle {
-  border-radius: 50%;
-}
-
-.shape--triangle {
-  width         : 0;
-  height        : 0;
-  border-left   : 1.5rem solid transparent;
-  border-right  : 1.5rem solid transparent;
-  border-bottom : 2rem solid;
-
-  .shape__weight {
-      position   : absolute;
-      top        : calc(100% + 1rem);
-      width      : 4.5rem;
-      text-align : center;
-  }
+	z-index: 1;
+	position: absolute;
+	top: 0;
+	width: 0.6em;
+	height: 0.6em;
+	border: 0.05em solid get-color('black', 0.1);
+	transform: translateY(-100%);
+	color: get-color('black', 0.8);
+	text-align: center;
+	line-height: 0.5em;
+	font-weight: 700;
+	&-wrapper {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: rem(750);
+		max-width: 100%;
+		height: rem(7);
+		margin: 0 auto;
+		&::before {
+			display: none;
+		}
+	}
+	&__inner {
+		display: block;
+		font-size: 0.3em;
+	}
+	&--right {
+		transform: translate(-50%, -100%);
+		animation: swipeIn 500ms;
+	}
+	&--circle {
+		border-radius: 50%;
+		background-color: get-color('blue', 0.7);
+	}
+	&--triangle {
+		border-width: 0 0.5em 0.5em 0.5em;
+		border-color: transparent;
+		border-bottom-color: get-color('black', 0.1);
+		.shape__inner {
+			position: absolute;
+			left: 50%;
+			top: 0;
+			transform: translate(-50%);
+			line-height: 2.75em;
+		}
+	}
+	&--rectangle {
+		background-color: get-color('orange', 0.7);
+	}
 }

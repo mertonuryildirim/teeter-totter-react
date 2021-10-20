@@ -1,4 +1,5 @@
-// Shapes id generator
+import { ELEMENT_WEIGHT_RANGE, SHAPES, WIDTH } from "./constants";
+
 function* idMaker() {
   let id = 1;
 
@@ -7,29 +8,23 @@ function* idMaker() {
   }
 }
 
-const helpers = {
-  getId: idMaker(),
-  generateRandomNumber(min = 0, max = 1) {
-    return min + Math.round(Math.random() * max);
-  },
-  generateRandomRGBColor() {
-    const maxValue = 200; // to generate only dark colors
+const generateRandomElement = (input = '') => {
+	const id = idMaker();
+	const type = SHAPES[Math.floor(Math.random() * SHAPES.length)];
+	const weight =
+		Math.floor(Math.random() * ELEMENT_WEIGHT_RANGE[1]) +
+		ELEMENT_WEIGHT_RANGE[0];
+	const offset = Math.floor((Math.random() * WIDTH) / 2) + 1;
+	const size = weight;
 
-    const r = this.generateRandomNumber(0, maxValue);
-    const g = this.generateRandomNumber(0, maxValue);
-    const b = this.generateRandomNumber(0, maxValue);
-
-    return `rgb(${r}, ${g}, ${b})`;
-  },
-  getShapesProportion(shapes = [], leftSide = false) {
-    return shapes.reduce((total, current) => {
-      const left = leftSide ? 50 - current.left : current.left;
-
-      total += current.weight * left;
-
-      return total;
-    }, 0);
-  },
+	return {
+		id,
+		type,
+		size,
+		weight,
+		offset
+	};
 };
 
-export default helpers;
+
+export default generateRandomElement;

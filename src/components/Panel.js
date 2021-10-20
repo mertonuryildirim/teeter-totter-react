@@ -1,30 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
-import { toggleSimulationAction, initGameAction } from "../store/actions";
+import { toggleSimulation, restartSimulation, getLeftWeight, getRightWeight } from "../store/actions";
 import "./panel.scss";
 
 const Panel = () => {
-  const dispatch = useDispatch();
-  const { droppedShapes, randomlyPlacedShapes, fallingShapes, isGamePaused } =
+  const { paused, ended, leftElements, rightElements, fallingElements } =
     useSelector((state) => state.reducer);
+  const dispatch = useDispatch();
 
-  const toggleSimulation = () => {
-    dispatch(toggleSimulationAction());
+  const handleToggleSimulation = () => {
+    dispatch(toggleSimulation());
   };
 
-  const initGame = () => {
-    dispatch(initGameAction());
-  };
-
-  const getTotalWeight = (shapes = []) => {
-    return shapes.reduce((total, current) => (total += current.weight), 0);
-  };
-
-  const totalDroppedShapesWeight = () => {
-    return getTotalWeight(droppedShapes);
-  };
-
-  const totalRandomShapesWeight = () => {
-    return getTotalWeight(randomlyPlacedShapes);
+  const handleRestartGame = () => {
+    dispatch(restartSimulation());
   };
 
   return (
@@ -32,24 +20,31 @@ const Panel = () => {
       <div className="panel-stats">
         <div>
           Total weight:
-          <span className="panel-stats-weight">
-            {totalDroppedShapesWeight()} kg
-          </span>
+          <span className="panel-stats-weight">{getLeftWeight(leftElements)} kg</span>
         </div>
         <div>
           Momentum:
           <span className="panel-stats-weight">
-            {fallingShapes[0] && fallingShapes[0].weight}
+            {fallingElements[0] && fallingElements[0].weight}
           </span>
         </div>
       </div>
 
       <div>
-        <button className="play-btn" tabIndex="-1" onClick={toggleSimulation}>
-          {isGamePaused ? "Play" : "Pause"}
+        <button
+          className="play-btn"
+          tabIndex="-1"
+          onClick={handleToggleSimulation}
+          disabled={ended}
+        >
+          {paused ? "Play" : "Pause"}
         </button>
 
-        <button className="refresh-btn" tabIndex="-1" onClick={initGame}>
+        <button
+          className="refresh-btn"
+          tabIndex="-1"
+          onClick={handleRestartGame}
+        >
           Refresh
         </button>
       </div>
@@ -57,13 +52,13 @@ const Panel = () => {
       <div className="panel-stats">
         <div>
           Total weight:
-          <span className="panel-stats-weight">
-            {totalRandomShapesWeight()} kg
-          </span>
+          <span className="panel-stats-weight">{getRightWeight(rightElements)} kg</span>
         </div>
         <div>
           Momentum:
-          <span className="panel-stats-weight"></span>
+          <span className="panel-stats-weight">
+            {fallingElements[0] && fallingElements[0].weight}
+          </span>
         </div>
       </div>
     </div>

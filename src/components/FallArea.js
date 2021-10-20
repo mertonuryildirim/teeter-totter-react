@@ -1,12 +1,12 @@
-import "./fallArea.scss"
-import Shape from "./Shape"
+import "./fallArea.scss";
+import Shape from "./Shape";
 
-const FallArea = () => {
-    return (
-        <div className="fall-area">
-            <Shape />
-        </div>
-    )
-}
+const FallArea = ({ shape }) => {
+  return (
+    <div className="fall-area">
+      <Shape shape={shape} />
+    </div>
+  );
+};
 
-export default FallArea
+export default FallArea;

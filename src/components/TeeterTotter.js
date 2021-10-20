@@ -1,15 +1,14 @@
-import FallArea from "./FallArea"
-import TeeterTotterObject from "./TeeterTotterObject"
-import "./teeterTotter.scss"
-
+import FallArea from "./FallArea";
+import TeeterTotterObject from "./TeeterTotterObject";
+import "./teeterTotter.scss";
 const TeeterTotter = () => {
-    return (
-        <div className="teeter-totter">
-            <FallArea />
+  return (
+    <div className="teeter-totter">
+      <FallArea />
 
-            <TeeterTotterObject />
-        </div>
-    )
-}
+      <TeeterTotterObject />
+    </div>
+  );
+};
 
-export default TeeterTotter
+export default TeeterTotter;

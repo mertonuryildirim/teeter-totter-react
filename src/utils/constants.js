@@ -1,28 +1,10 @@
-// Shape types
-export const SQUARE = 1;
-export const TRIANGLE = 2;
-export const CIRCLE = 3;
-
-// Min and max weight
-export const MIN_WEIGHT = 1;
-export const MAX_WEIGHT = 10;
-
-// Scaling
-export const SCALE_STEP = 0.08;
-
-// Falling shapes
-export const MAX_FALLING_INTERVAL_GAP = 10;
-export const MIN_FALLING_INTERVAL_GAP = 5;
-
-// Key codes
-export const SPACE_KEY = 32;
-export const LEFT_ARROW_KEY = 37;
-export const RIGHT_ARROW_KEY = 39;
-
-// Angles
-export const MAX_BENDING_ANGLE = 30;
-export const MIN_BENDING_ANGLE = -30;
-
-// Teeter-totter board
-export const BOARD_HEIGHT = 6;
-export const BOARD_WIDTH = 100;
+export const WIDTH = 10;
+export const MAX_BENDING_PERCENTAGE = 30;
+export const MAX_POWER_DIFF = 20;
+export const SHAPES = ['circle', 'triangle', 'rectangle'];
+export const ELEMENT_WEIGHT_RANGE = [1, 10];
+export const FALLING_ELEMENTS = 1;
+export const MOVEMENT_DELAY = 300;
+export const MOVEMENT_DELAY_DESCREASE = 50;
+export const MOVEMENT_DELAY_DESCREASE_AFTER = 3;
+export const MOVEMENT_DISTANCE = 25;
