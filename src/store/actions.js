@@ -1,4 +1,4 @@
-import { MAX_BENDING_PERCENTAGE } from "../utils/constants";
+import { MAX_BENDING_PERCENTAGE, MAX_POWER_DIFF } from "../utils/constants";
 
 export const TOGGLE_SIMULATION = "TOGGLE_SIMULATION";
 export const SIMULATION_RESET = "SIMULATION_RESET";
@@ -78,4 +78,38 @@ export const getBending = (state) => {
       ? ((totalLeft - totalRight) / totalLeft) * -100
       : ((totalRight - totalLeft) / totalRight) * 100;
   }
+};
+
+export const getStatus = state => {
+  const totalLeft = getLeftWeight(state.leftElements);
+  const totalRight = getRightWeight(state.rightElements);
+	const bending = getBending(state);
+	return (
+		bending > MAX_BENDING_PERCENTAGE ||
+		bending < -1 * MAX_BENDING_PERCENTAGE ||
+		Math.abs(totalLeft - totalRight) > MAX_POWER_DIFF
+	);
+};
+
+export const fallEnded = () => {
+	return (dispatch, getState) => {
+		dispatch(insertLeftElement());
+		setTimeout(() => {
+			const { Seesaw: state } = getState();
+			if (getStatus(state)) {
+				setTimeout(() => {
+					dispatch(toggleSimulation());
+					dispatch(simulationEnd());
+				}, 0);
+			} else {
+				dispatch(insertFallingElement());
+				if (
+					state.leftElements &&
+					state.leftElements.length + 1 !== state.rightElements.length
+				) {
+					dispatch(insertRightElement());
+				}
+			}
+		}, 250);
+	};
 };
