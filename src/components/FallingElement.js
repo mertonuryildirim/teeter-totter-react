@@ -6,7 +6,7 @@ import { fallEnded, getBending } from '../store/actions';
 import Shape from './Shape';
 import { MAX_BENDING_PERCENTAGE, MOVEMENT_DISTANCE, WIDTH } from '../utils/constants';
 
-const beamClass = 'seesaw__beam';
+const beamClass = 'teeter-totter-object-board';
 const FallingElement = ({
 	index,
 	element,
