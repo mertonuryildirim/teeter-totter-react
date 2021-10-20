@@ -7,7 +7,14 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    case "TOGGLE_SIMULATION":
+      return { ...state, isGamePaused: !state.isGamePaused };
+    case "INIT_GAME":
+      return { ...state, isGamePaused: action.payload };
+    default:
+      return state;
+  }
 };
 
 export default reducer;
