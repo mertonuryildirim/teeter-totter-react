@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getBending, insertRightElement } from "../store/actions";
-import { MAX_BENDING_PERCENTAGE } from "../utils/constants";
+import { BOARD_HEIGHT, MAX_BENDING_PERCENTAGE } from "../utils/constants";
 import Shape from "./Shape";
 import "./teeterTotterObject.scss";
 
@@ -9,7 +9,7 @@ const TeeterTotterObject = () => {
   const state = useSelector((state) => state.reducer);
   const dispatch = useDispatch();
 
-	const bending = getBending(state);
+  const bending = getBending(state);
 
   useEffect(() => {
     dispatch(insertRightElement());
@@ -25,6 +25,8 @@ const TeeterTotterObject = () => {
             Math.min(Math.abs(bending / 2), MAX_BENDING_PERCENTAGE) *
             (bending > 0 ? 1 : -1)
           }deg)`,
+
+          height: `${BOARD_HEIGHT}px`,
         }}
       >
         {state.leftElements

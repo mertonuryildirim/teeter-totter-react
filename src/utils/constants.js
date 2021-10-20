@@ -1,7 +1,8 @@
 export const WIDTH = 10;
+export const BOARD_HEIGHT = 6;
 export const MAX_BENDING_PERCENTAGE = 30;
 export const MAX_POWER_DIFF = 20;
-export const SHAPES = ['circle', 'triangle', 'rectangle'];
+export const SHAPES = ["circle", "triangle", "rectangle"];
 export const ELEMENT_WEIGHT_RANGE = [1, 10];
 export const FALLING_ELEMENTS = 1;
 export const MOVEMENT_DELAY = 300;
