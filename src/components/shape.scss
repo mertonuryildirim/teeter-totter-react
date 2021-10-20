@@ -1,3 +1,26 @@
+$colors: (
+	'white': #ffffff,
+	'black': #000000,
+	'orange': #ff9900,
+	'green': #6aa84f,
+	'gray': #666666,
+	'blue': #cfe2f3,
+	'red': #cc4125,
+	'yellow': #ffff00
+);
+
+@function get-color($color, $opacity: 1, $_colors: $colors) {
+	@return rgba(map-get($_colors, $color), $opacity);
+}
+
+@function em($input, $base: $body-font-size) {
+	@return ($input / $base) * 1em;
+}
+
+@function rem($input, $base: 16) {
+	@return ($input / $base) * 1rem;
+}
+
 .shape {
 	z-index: 1;
 	position: absolute;

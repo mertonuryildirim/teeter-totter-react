@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import { fallEnded, getBending } from '../store/actions';
 import Shape from './Shape';
 import { MAX_BENDING_PERCENTAGE, MOVEMENT_DISTANCE, WIDTH } from '../utils/constants';
@@ -55,7 +54,6 @@ const FallingElement = ({
 	}, [state.paused, elementTop]);
 	return (
 		<div
-			className="element-wrapper"
 			style={{
 				top: elementTop,
 				transform: `rotate(${Math.min(
@@ -65,7 +63,6 @@ const FallingElement = ({
 			}}
 		>
 			<Shape
-				className={classnames('element--falling', { [className]: className })}
 				side="left"
 				top={elementTop}
 				setBottom={setElementBottom}
