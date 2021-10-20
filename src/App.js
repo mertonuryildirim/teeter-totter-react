@@ -1,5 +1,5 @@
-import TeeterTotter from "./components/body/TeeterTotter";
-import Panel from "./components/header/Panel";
+import TeeterTotter from "./components/TeeterTotter";
+import Panel from "./components/Panel";
 import "./app.scss"
 
 const App = () => {
